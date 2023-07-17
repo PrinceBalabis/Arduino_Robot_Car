@@ -1,17 +1,9 @@
 #include <NewPing.h>
 
-#define trigPin 3
-#define echoPin 2
-#define MAX_DISTANCE 200                        // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
-NewPing sonar(trigPin, echoPin, MAX_DISTANCE);  // NewPing setup of pins and maximum distance.
-
-void setup_ultrasonic() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(LED_BUILTIN, OUTPUT);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
-}
-
+#define TRIGGER_PIN 3
+#define ECHO_PIN 2
+#define MAX_DISTANCE 200 // Maximum distance we want to ping for (in centimeters). Maximum sensor distance is rated at 400-500cm.
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);  // NewPing setup of pins and maximum distance.
 
 unsigned long read_ultrasonic() {
     unsigned long distance = sonar.ping_cm();

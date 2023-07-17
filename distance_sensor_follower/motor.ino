@@ -43,3 +43,13 @@ void drive_backwards(int right_motor_pwm, int left_motor_pwm) {
   analogWrite(right_motor_pwm_pin, right_motor_pwm);
   analogWrite(left_motor_pwm_pin, left_motor_pwm);
 }
+
+void drive_break() {
+  digitalWrite(right_motor_b_pin, HIGH);
+  digitalWrite(left_motor_d_pin, HIGH);
+  digitalWrite(right_motor_a_pin, HIGH);
+  digitalWrite(left_motor_c_pin, HIGH);
+
+  analogWrite(right_motor_pwm_pin, 0);
+  analogWrite(left_motor_pwm_pin, 0);
+}
