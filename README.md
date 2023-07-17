@@ -12,8 +12,10 @@ Video demonstration (Youtube):
 
 
 Components:
-* Ultrasonic sensor
-* Arduino uno
-* H-bridge
+* Ultrasonic sensor HC-SR04
+* Arduino Uno Rev 3
+* Dual motor H-bridge L298
 * 4pcs AA batteries
-* battery holder 4x AA
+* Battery holder 4x AA
+* Robot car kit with two DC motors and wheels
+* Breadboards
