@@ -10,8 +10,8 @@ void setup_serial() {
 void run_serial_logger() {
   if (millis() - serialRateTimer > serialRateTarget) {
 
-    Serial.print("middleLocation:");
-    Serial.print(middleLocation);
+    Serial.print("sensorPosition:");
+    Serial.print(sensorPosition);
     Serial.print(",pidOutput:");
     Serial.print(output);
     Serial.print(",motorSpeedLeft:");

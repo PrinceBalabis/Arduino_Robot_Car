@@ -9,10 +9,10 @@ double input = 0;
 double output = 0;
 
 // Arbitrary setpoint and gains - adjust these as fit for your project:
-double setpoint = 4;
-double p = 63;
+double setpoint = 3500;
+double p = 0.0729;
 double i = 0;
-double d = 0;
+double d = 1;
 
 double baseSpeed = 200;  // The minimum output to send (plus or minus)
 double maxSpeed = 255;
@@ -32,17 +32,27 @@ void setup_pid() {
   myController.start();
 }
 
+void spin_calibration() {
+  drive_spin(false, 255, 255);
+  setup_reflectance_sensor();
+}
+
+void search_black_line(bool turn_left) {
+  drive_spin(turn_left, 200, 200);
+  reflectance_block_until_black_line();
+  drive_break();
+}
+
 void run_pid() {
   if (millis() - timer >= timerInterval) {
 
-    read_sensor_calibrated();
-    detect_black();
-    calculate_middle_of_black();
-    input = middleLocation;
+    run_black_line_detection();
+    input = sensorPosition;
 
     if (input == 0) {
-      // drive slow
-      drive_forward(baseSpeed, baseSpeed);
+      search_black_line(true);
+    } else if (input == 7000) {
+      search_black_line(false);
     } else {
       myController.compute();
 

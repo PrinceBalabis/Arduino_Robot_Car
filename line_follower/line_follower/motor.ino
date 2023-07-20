@@ -44,6 +44,23 @@ void drive_backwards(int left_motor_pwm, int right_motor_pwm) {
   analogWrite(left_motor_pwm_pin, left_motor_pwm);
 }
 
+void drive_spin(bool turn_left, int left_motor_pwm, int right_motor_pwm) {
+  if (turn_left) {
+    digitalWrite(right_motor_a_pin, HIGH);
+    digitalWrite(left_motor_c_pin, LOW);
+    digitalWrite(right_motor_b_pin, LOW);
+    digitalWrite(left_motor_d_pin, HIGH);
+  } else {
+    digitalWrite(right_motor_a_pin, LOW);
+    digitalWrite(left_motor_c_pin, HIGH);
+    digitalWrite(right_motor_b_pin, HIGH);
+    digitalWrite(left_motor_d_pin, LOW);
+  }
+
+  analogWrite(right_motor_pwm_pin, right_motor_pwm);
+  analogWrite(left_motor_pwm_pin, left_motor_pwm);
+}
+
 void drive_break() {
   digitalWrite(right_motor_b_pin, HIGH);
   digitalWrite(left_motor_d_pin, HIGH);
