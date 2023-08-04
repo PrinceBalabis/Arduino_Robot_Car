@@ -11,7 +11,7 @@ double output = 0;
 // Arbitrary setpoint and gains - adjust these as fit for your project:
 double setpoint = 3500;
 double p = 0.0729;
-double i = 0;
+double i = 0.1;
 double d = 1;
 
 double baseSpeed = 200;  // The minimum output to send (plus or minus)
@@ -19,7 +19,7 @@ double maxSpeed = 255;
 double motorSpeedLeft = 0, motorSpeedRight = 0;
 
 unsigned long timer = 0;
-unsigned long timerInterval = 50;  // Wait 50ms between pings (about 20 pings/sec). 29ms should be the shortest delay between pings.
+unsigned long timerInterval = 10;
 
 void setup_pid() {
   myController.begin(&input, &output, &setpoint, p, i, d);

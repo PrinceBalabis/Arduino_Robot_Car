@@ -25,7 +25,6 @@ void setup_reflectance_sensor() {
     Serial.print(' ');
   }
   Serial.println();
-  Serial.println();
 }
 
 void calibrate_reflectance_sensor() {
@@ -38,8 +37,6 @@ void calibrate_reflectance_sensor() {
 void reflectance_block_until_black_line() {
   while (sensorPosition <= 3000 || sensorPosition >= 4000) {
     run_black_line_detection();
-    Serial.print("sensorPosition:");
-    Serial.println(sensorPosition);
     delay(1);
   }
 }

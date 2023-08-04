@@ -4,6 +4,8 @@ void setup() {
   setup_serial();
   setup_motors();
 
+  Serial.println("");
+  Serial.println("");
   Serial.println("Starting calibration in 3 seconds...");
   delay(3000);
 
